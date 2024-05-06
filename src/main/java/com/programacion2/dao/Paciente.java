@@ -9,12 +9,23 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PacienteDAO {
+public class Paciente {
 
     private String nombre;
     private String apellido;
-    private ObraSocialDAO obraSocial;
+    private ObraSocial obraSocial;
     private List<Turno> turnos;
     private List<Receta> recetas;
 
+
+    public void solicitarTurno(String nombreMedico, boolean particular){
+
+    }
+
+    public void iniciarTurno(Turno turno){
+
+    }
+    public void comprarMedicamentos(Receta receta){
+
+    }
 }

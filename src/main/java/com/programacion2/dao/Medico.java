@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Data
 @AllArgsConstructor
@@ -15,6 +17,28 @@ public class Medico {
     private String apellido;
     private Especialidad especialidad;
     private boolean atiendeParticular;
-    private List<ObraSocialDAO> obrasSocialesAceptadas;
+    private List<ObraSocial> obrasSocialesAceptadas;
+    private static final Random random = new Random();
+
+
+    public Receta recetarPaciente(){
+
+        if (random.nextBoolean()) {
+            Receta receta = new Receta();
+            List<Medicamento> medicamentos = new ArrayList<>();
+            int numMedicamentos = random.nextInt(6);
+            for (int i = 0; i < numMedicamentos; i++) {
+                Medicamento medicamento = new Medicamento();
+                medicamento.setNombre("Medicamento " + (i + 1));
+                medicamento.setCantidad(random.nextInt(100));
+                medicamento.setPrecio(random.nextFloat(10000));
+                medicamentos.add(medicamento);
+            }
+            receta.setMedicamentosRecetados(medicamentos);
+            return receta;
+        } else {
+            return null;
+        }
+    }
 
 }

@@ -14,4 +14,6 @@ public class Medicamento {
     private int cantidad;
     private Float precio;
 
+
+
 }

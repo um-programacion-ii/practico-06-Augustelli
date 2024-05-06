@@ -6,12 +6,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
-public class Farmacia {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Drogueria {
 
     private List<Medicamento> medicamentos;
-    private Drogueria drogueria;
-
 }
