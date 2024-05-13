@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class Medicamento {
 
     private String nombre;
-    private Presentacion presentacion;
     private int cantidad;
     private Float precio;
 

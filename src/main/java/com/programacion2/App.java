@@ -10,7 +10,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        Clinica clinica = new Clinica();
-        clinica.init();
+
     }
 }

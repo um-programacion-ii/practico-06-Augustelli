@@ -1,15 +1,14 @@
 package com.programacion2.dao;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import java.util.List;
+
+
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Drogueria {
 
-    private List<Medicamento> medicamentos;
+    public static Medicamento solicitarMedicamento(Medicamento medicamento){
+        return new Medicamento(medicamento.getNombre(),1000, medicamento.getPrecio());
+    }
 }

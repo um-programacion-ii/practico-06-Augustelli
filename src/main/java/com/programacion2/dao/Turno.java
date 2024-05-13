@@ -15,14 +15,14 @@ public class Turno {
     private Receta receta;
     private ObraSocial obraSocial;
 
-    // Crear servicio de clinica que me de médico dado su nombre o  el objeto de médico
-    public  Turno crearTurnoParticular(Paciente paciente, String nombreMedico){
-        return new Turno(nombreMedico, paciente, EstadoTurno.TOMADO, null, ObraSocial.NO_OBRA_SOCIAL );
+
+
+    public Turno(Medico medico, Paciente paciente, EstadoTurno estadoTurno, ObraSocial obraSocial) {
+        this.medico = medico;
+        this.paciente = paciente;
+        this.estadoTurno = estadoTurno;
+        this.obraSocial = obraSocial;
     }
 
-    public Turno crearTurnoPorObraSocial(Paciente paciente, String nombreMedico){
-        return new Turno(nombreMedico, paciente, EstadoTurno.TOMADO, null, paciente.getObraSocial() );
-
-    }
 
 }

@@ -17,19 +17,29 @@ public class Clinica {
     private List<Paciente> pacietes;
     private Farmacia farmacia;
     private Map<Paciente, List<Turno>> turnosPacientes;
-    public void init() {
-    }
 
-    public List<Medico> listarMedicosPorEspecialidadYObraSocial(String nombreObraSocial, String nombreEspecialidad) {
-        return medicos.stream()
-                .filter(medico -> medico.getObrasSocialesAceptadas().contains(ObraSocial.valueOf(nombreObraSocial))
-                        && medico.getEspecialidad().equals(Especialidad.valueOf(nombreEspecialidad)))
+
+    public List<Medico> listarMedicosPorEspecialidad(Especialidad especialidad) {
+        return getMedicos().stream()
+                .filter(medico -> medico.getEspecialidad().equals(especialidad))
                 .collect(Collectors.toList());
     }
 
-    public List<Medico> listarMedicos(){
-        return medicos;
+    public List<Medico> listarMedicosQueAtiendenParticular()
+    {
+        return getMedicos().stream()
+                .filter(Medico::isAtiendeParticular)
+                .collect(Collectors.toList());
     }
+
+    public void iniciarTurno(Paciente paciente, Turno turno) throws Exception {
+        if (turno.getMedico().isAtendiendoPaciente()){
+            throw new Exception("El médico no puede atender al paciente porque esta atendiendo a otro");
+
+        }
+    }
+
+
 
 }
 
